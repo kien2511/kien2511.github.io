@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài toán chọn quả bóng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bài toán chọn quả bóng</h2>
+        <button onclick="tinhToan()">Tính toán</button>
+        <p id="ketQua"></p>
+    </div>
+
+    <script>
+        function tinhToan() {
+            var soPhanTu = 10;
+            var soPhanTuChon = 3;
+            var ketQua = tinhCachChon(soPhanTu, soPhanTuChon);
+            document.getElementById("ketQua").innerHTML = "Có " + ketQua + " cách chọn.";
+        }
+
+        function tinhCachChon(n, k) {
+            return tinhToHop(n, k);
+        }
+
+        function tinhToHop(n, k) {
+            return tinhGiaiThua(n) / (tinhGiaiThua(k) * tinhGiaiThua(n - k));
+        }
+
+        function tinhGiaiThua(x) {
+            if (x === 0 || x === 1) return 1;
+            var giaiThua = 1;
+            for (var i = 2; i <= x; i++) {
+                giaiThua *= i;
+            }
+            return giaiThua;
+        }
+    </script>
+</body>
+</html>

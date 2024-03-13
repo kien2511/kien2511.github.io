@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Số tự nhiên có 3 chữ số và không chứa chữ số 5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #11ff00;
+            color: #881616;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Danh sách số tự nhiên có 3 chữ số và không chứa chữ số 5:</h2>
+    <ul id="result"></ul>
+
+    <script>
+        function lietKeSo() {
+            var resultElement = document.getElementById("result");
+            resultElement.innerHTML = ""; // Xóa nội dung cũ
+
+            for (var i = 100; i < 1000; i++) {
+                if (!chuaChuSo5(i)) {
+                    var listItem = document.createElement("li");
+                    listItem.textContent = i;
+                    resultElement.appendChild(listItem);
+                }
+            }
+        }
+
+        function chuaChuSo5(number) {
+            var strNumber = number.toString();
+            return strNumber.indexOf("5") !== -1;
+        }
+    </script>
+
+    <button onclick="lietKeSo()">Liệt kê số</button>
+</body>
+</html>
